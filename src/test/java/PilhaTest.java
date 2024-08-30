@@ -24,4 +24,27 @@ public class PilhaTest {
         // o topo da pilha é igual a 5?
         assertEquals(5, p.topo());
     }
+
+    // o teste passou, modifique ou crie um novo teste
+    // @Test
+    // public void empilhaDoisElementos() {
+    //    Pilha p = new Pilha();
+    //    p.empilha(5);
+    //    p.empilha(10);
+    //    assertEquals(2, p.tamanho());
+    //    assertEquals(10, p.topo());
+    // }
+
+    @Test
+    public void empilhaEDesempilha() {
+        Pilha p = new Pilha();
+        p.empilha(5);
+        p.empilha(10);
+        assertEquals(2, p.tamanho());
+        assertEquals(10, p.topo());
+        Object objetoDesempilhado = p.desempilha();
+        assertEquals(1, p.tamanho());
+        assertEquals(5, p.topo());
+        assertEquals(10, objetoDesempilhado);
+    }
 }

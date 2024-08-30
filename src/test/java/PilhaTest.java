@@ -1,12 +1,21 @@
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class PilhaTest {
 
+    private Pilha p;
+
+    // execute este método antes dos métodos de teste
+    @Before
+    public void inicializaPilha() {
+        p = new Pilha(10);
+    }
+
     @Test
     public void pilhaVazia() {
-        Pilha p = new Pilha();
+        inicializaPilha();
         // a condição é verdadeira?
         assertTrue(p.estaVazia());
         // o tamanho da pilha é igual a 0?
@@ -15,7 +24,7 @@ public class PilhaTest {
 
     @Test
     public void empilhaUmElemento() {
-        Pilha p = new Pilha();
+        inicializaPilha();
         p.empilha(5);
         // a condicação é falsa?
         assertFalse(p.estaVazia());
@@ -37,7 +46,7 @@ public class PilhaTest {
 
     @Test
     public void empilhaEDesempilha() {
-        Pilha p = new Pilha();
+        inicializaPilha();
         p.empilha(5);
         p.empilha(10);
         assertEquals(2, p.tamanho());

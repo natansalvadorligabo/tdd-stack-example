@@ -56,4 +56,11 @@ public class PilhaTest {
         assertEquals(5, p.topo());
         assertEquals(10, objetoDesempilhado);
     }
+
+    // o teste espera uma exception chamada PilhaVaziaException
+    @Test(expected = PilhaVaziaException.class)
+    public void removeDaPilhaVazia() {
+        inicializaPilha();
+        p.desempilha();
+    }
 }

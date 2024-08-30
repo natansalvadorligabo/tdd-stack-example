@@ -26,6 +26,9 @@ public class Pilha {
     }
 
     public Object desempilha() {
+        if (estaVazia()) {
+            throw new PilhaVaziaException("A Pilha está vazia.");
+        }
         Object topo = topo();
         quantidade--;
         return topo;

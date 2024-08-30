@@ -1,7 +1,7 @@
 // faça o suficiente para o teste passar!!!
 public class Pilha {
 
-    private Object[] elementos;
+    private final Object[] elementos;
     private int quantidade = 0;
 
     public Pilha(int maximo) {
@@ -17,6 +17,9 @@ public class Pilha {
     }
 
     public void empilha(Object elemento) {
+        if (quantidade == elementos.length) {
+            throw new PilhaCheiaException("A Pilha está cheia.");
+        }
         this.elementos[quantidade] = elemento;
         quantidade++;
     }

@@ -15,7 +15,6 @@ public class PilhaTest {
 
     @Test
     public void pilhaVazia() {
-        inicializaPilha();
         // a condição é verdadeira?
         assertTrue(p.estaVazia());
         // o tamanho da pilha é igual a 0?
@@ -24,7 +23,6 @@ public class PilhaTest {
 
     @Test
     public void empilhaUmElemento() {
-        inicializaPilha();
         p.empilha(5);
         // a condicação é falsa?
         assertFalse(p.estaVazia());
@@ -46,7 +44,6 @@ public class PilhaTest {
 
     @Test
     public void empilhaEDesempilha() {
-        inicializaPilha();
         p.empilha(5);
         p.empilha(10);
         assertEquals(2, p.tamanho());
@@ -60,7 +57,20 @@ public class PilhaTest {
     // o teste espera uma exception chamada PilhaVaziaException
     @Test(expected = PilhaVaziaException.class)
     public void removeDaPilhaVazia() {
-        inicializaPilha();
         p.desempilha();
+    }
+
+    // o teste captura uma exception chamada PilhaCheiaException
+    @Test
+    public void adicionaNaPilhaCheia() {
+        for (int i = 0; i < 10; i++) {
+            p.empilha("Elemento " + i);
+        }
+        // precisamos verificar se o erro acontece APÓS empilhar mais um elemento
+        try {
+            p.empilha("Stack Overflow");
+            // espera que o teste falhe
+            fail();
+        } catch (PilhaCheiaException ignored) {}
     }
 }

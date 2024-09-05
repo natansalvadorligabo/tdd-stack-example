@@ -60,6 +60,15 @@ public class PilhaTest {
         p.desempilha();
     }
 
+    // adionando um teste ruim (elementos.length-4)
+    // @Test(expected = PilhaCheiaException.class)
+    // public void adicionaNaPilhaCheia() {
+    //     for (int i = 0; i < 10; i++) {
+    //         p.empilha("Elemento " + i);
+    //     }
+    //     p.empilha("Stack Overflow");
+    // }
+
     // o teste captura uma exception chamada PilhaCheiaException
     @Test
     public void adicionaNaPilhaCheia() {
